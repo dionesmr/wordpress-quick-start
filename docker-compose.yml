@@ -21,13 +21,15 @@ services:
       - database
     environment:
       PMA_HOST: database
-      PMA_USER: $MYSQL_USER
-      PMA_PASSWORD: $MYSQL_PASSWORD
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
+    env_file:
+      - .env
     ports:
       - 8081:80
+    networks:
+      - blog-network
   wordpress:
     depends_on:
       - database
