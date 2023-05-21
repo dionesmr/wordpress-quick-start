@@ -20,7 +20,9 @@ services:
     links:
       - database
     environment:
-      PMA_HOST: db
+      PMA_HOST: database
+      PMA_USER: $MYSQL_USER
+      PMA_PASSWORD: $MYSQL_PASSWORD
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
